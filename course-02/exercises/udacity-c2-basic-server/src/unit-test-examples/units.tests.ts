@@ -1,6 +1,7 @@
 import { add, divide } from './units';
 
 import { expect } from 'chai';
+
 import 'mocha';
 
 describe('add function', () => {
@@ -34,6 +35,21 @@ describe('divide', () => {
   });
 
 });
+
+describe('concat', () => {
+  
+  it('it should throw an error if either string is empty.', () => {
+    expect(() => { concat('', '')}).to.throw('string cannot be empty');
+  })
+})
+
+export const concat = (a: string, b: string) => {
+    if (!a || !b)
+        throw new Error('string cannot be empty');
+    
+    return a + b;
+}
+
 
 // @TODO try creating a new describe block for the "concat" method
 // it should contain an it block for each it statement in the units.ts @TODO.
